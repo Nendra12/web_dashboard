@@ -1,0 +1,15 @@
+/* .home.active .sign{
+    display: block;
+}
+
+.home .sign {
+    display: none;
+}
+
+.home.active .icon_nav{
+    background: var(--color-active1);
+} 
+
+.home.active span{
+    color: var(--color-active1);
+}  */

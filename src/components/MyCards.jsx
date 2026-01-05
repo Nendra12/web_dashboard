@@ -37,7 +37,7 @@ function MyCards() {
                     </div>
                 </div>
             </div>
-            <div className='border-[#DFEAF2] border relative rounded-[25px] flex flex-col p-6.5 gap-5'>
+            <div className='border-[#DFEAF2] bg-[#FFFFFF] border relative rounded-[25px] flex flex-col p-6.5 gap-5'>
                 <div className='flex justify-between items-center'>
                     <div>
                         <p className='text-[12px] font-normal text-primary3 font-family-base'>Balance</p>

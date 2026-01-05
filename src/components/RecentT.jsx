@@ -7,7 +7,7 @@ function RecentT() {
   return (
     <>
         <p className='font-semibold text-[22px] text-primary2'>Recent Transaction</p>
-        <div className='border-[#DFEAF2] border relative rounded-[25px] flex flex-col p-6.5 gap-2.5 h-full'>
+        <div className='border-[#DFEAF2] border bg-[#FFFFFF] relative rounded-[25px] flex flex-col p-6.5 gap-2.5 h-full'>
             <div className='flex gap-3.5 justify-between items-center'>
                 <div className='flex items-center gap-5'>
                     <img src={wallet} alt="wallet" />

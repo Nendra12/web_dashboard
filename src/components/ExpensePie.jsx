@@ -1,59 +1,109 @@
-import React from "react";
-import Chart from "react-apexcharts";
+import React, { useMemo } from "react";
+import "./expensePie.css";
 
-export default function ExpensePie() {
-  const chartRef = React.useRef(null);
+const NS = "http://www.w3.org/2000/svg";
 
-  const series = [25.6, 32.0, 23.8, 9.9, 8.7]; // contoh sesuai gambar
-  const labels = ["Blue", "Green (32%)", "Orange", "Red", "Purple"];
+function toRad(deg) {
+  return (deg * Math.PI) / 180;
+}
 
-  const options = {
-    chart: {
-      type: "donut",
-      events: {
-        mounted: (chart) => {
-          // pilih slice "32%" (index 1)
-          chart.toggleDataPointSelection(0, 1);
-        },
-      },
-    },
+function polarToCartesian(cx, cy, r, angleDeg) {
+  const a = toRad(angleDeg);
+  return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+}
 
-    labels,
+function describeWedge(cx, cy, r, startDeg, endDeg) {
+  const start = polarToCartesian(cx, cy, r, startDeg);
+  const end = polarToCartesian(cx, cy, r, endDeg);
 
-    plotOptions: {
-      pie: {
-        expandOnClick: true, // klik/selected akan "ketarik keluar"
-        donut: {
-          size: "65%",
-        },
-      },
-    },
+  let delta = endDeg - startDeg;
+  while (delta < 0) delta += 360;
 
-    // biar saat selected keliatan lebih “naik”
-    states: {
-      active: {
-        filter: { type: "none" }, // jangan gelapin yang lain
-      },
-    },
+  const largeArcFlag = delta > 180 ? 1 : 0;
+  const sweepFlag = 1; // clockwise
 
-    stroke: {
-      width: 4,
-      colors: ["#fff"],
-    },
+  return [
+    `M ${cx} ${cy}`,
+    `L ${start.x.toFixed(2)} ${start.y.toFixed(2)}`,
+    `A ${r} ${r} 0 ${largeArcFlag} ${sweepFlag} ${end.x.toFixed(2)} ${end.y.toFixed(2)}`,
+    "Z",
+  ].join(" ");
+}
 
-    dataLabels: {
-      enabled: true,
-      formatter: (val) => `${val.toFixed(1)}%`,
-    },
+export default function ExpensePie({
+  labels = [ "Others", "Bill Expense", "Entertainment", "Investment"],
+  sizes = [20, 15, 30, 35],
+  colors = ["#1814F3", "#FC7900", "#343C6A", "#FA00FF"],
+  radii = [1.15, 1.26, 1.15, 1.05], // relatif terhadap baseR
+  startAngle = 90,
+  baseR = 120, // untuk viewBox 300x300
+  gap = 8, // tebal garis putih (px di SVG)
+  pctDistance = 0.58, // sama seperti python (0.62*r)
+}) {
+  const cx = 150;
+  const cy = 150;
+  const total = useMemo(() => sizes.reduce((a, b) => a + b, 0), [sizes]);
 
-    legend: {
-      position: "bottom",
-    },
-  };
+  const slices = useMemo(() => {
+    // build cumsum
+    const cumsum = [0];
+    for (let i = 0; i < sizes.length; i++) cumsum.push(cumsum[i] + sizes[i]);
+
+    // theta = startAngle - (cumsum/total)*360
+    const theta = cumsum.map((v) => startAngle - (v / total) * 360);
+
+    return sizes.map((val, i) => {
+      const r = baseR * radii[i];
+
+      // python: theta1 = theta[i+1], theta2 = theta[i]
+      const theta1 = theta[i + 1];
+      const theta2 = theta[i];
+
+      const d = describeWedge(cx, cy, r, theta1, theta2);
+
+      // label position mengikuti python
+      const ang = (theta2 + theta1) / 2;
+      const tx = cx + pctDistance * r * Math.cos(toRad(ang));
+      const ty = cy + pctDistance * r * Math.sin(toRad(ang));
+
+      return {
+        key: `${labels[i]}-${i}`,
+        d,
+        fill: colors[i],
+        pct: `${val}%`,
+        label: labels[i],
+        tx,
+        ty,
+      };
+    });
+  }, [sizes, labels, colors, radii, startAngle, baseR, total, pctDistance]);
 
   return (
-    <div className="max-w-full border bg-white rounded-[25px] py-7 px-8.25">
-      <Chart ref={chartRef} options={options} series={series} type="donut" width="100%" />
-    </div>
+    <>
+        <svg className="pieSvg" viewBox="0 0 300 300" role="img" aria-label="Expense Pie">
+          {slices.map((s) => (
+            <g className="slice" key={s.key}>
+              <path
+                className="arc"
+                d={s.d}
+                fill={s.fill}
+                stroke="#fff"
+                strokeWidth={gap}
+                strokeLinejoin="round"
+              />
+              <text className="label" x={s.tx} y={s.ty}>
+                <tspan className="pct" x={s.tx} dy="0">
+                  {s.pct}
+                </tspan>
+                <tspan className="name" x={s.tx} dy="22">
+                  {s.label}
+                </tspan>
+              </text>
+            </g>
+          ))}
+        </svg>
+    
+    
+    </>
   );
 }

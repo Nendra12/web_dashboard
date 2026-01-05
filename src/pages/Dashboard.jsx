@@ -14,7 +14,7 @@ function Dashboard() {
         <div className='bg-[#ffffff] w-full h-25 border border-gray-100 py-5 px-10'>
             <Navbar />
         </div>
-        <div className='py-6 px-10 flex flex-col gap-6'>
+        <div className='py-6 px-10 flex flex-col gap-6 bg-[#F5F7FA]'>
             <div className='flex gap-7.5 h-74'>
                 <div className='w-[65%] h-full flex flex-col'>
                     <MyCards />
@@ -24,15 +24,20 @@ function Dashboard() {
                 </div>
             </div>
             <div className='flex gap-7.5 h-auto'>
-                <div className='w-[65%] border flex flex-col'>
+                <div className='w-[65%] flex flex-col'>
                     <WeeklyActv />
                 </div>
-                <div className='w-[35%] border flex flex-col gap-5'>
+                <div className='w-[35%] flex flex-col gap-5'>
                     <ExpenseStat />
                 </div>
             </div>
             <div className='flex gap-7.5 h-80'>
-                
+                <div className='w-[40%] flex flex-col border'>
+                   
+                </div>
+                <div className='w-[60%] flex flex-col gap-5 border'>
+                   
+                </div>
             </div>
         </div>
     </div>

@@ -23,6 +23,7 @@
   --color-primary3: #718EBF;
   --color-secondery: #FE5C73;
   --color-active1: #2D60FF;
+  --font-family-base: lato, sans-serif;
 }
 
 body {

@@ -5,6 +5,8 @@ import RecentT from '../components/RecentT'
 import MyCards from '../components/MyCards'
 import WeeklyActv from '../components/WeeklyActv'
 import ExpenseStat from '../components/ExpenseStat'
+import QuickTf from '../components/QuickTf'
+import BalanceHistory from '../components/BalanceHistory'
 
 
 
@@ -32,11 +34,11 @@ function Dashboard() {
                 </div>
             </div>
             <div className='flex gap-7.5 h-80'>
-                <div className='w-[40%] flex flex-col border'>
-                   
+                <div className='w-[40%] flex flex-col'>
+                   <QuickTf />
                 </div>
-                <div className='w-[60%] flex flex-col gap-5 border'>
-                   
+                <div className='w-[60%] flex flex-col gap-5'>
+                   <BalanceHistory />
                 </div>
             </div>
         </div>

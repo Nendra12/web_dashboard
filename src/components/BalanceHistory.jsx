@@ -1,0 +1,86 @@
+import React from "react";
+import Chart from "react-apexcharts";
+
+export default function BalanceHistory() {
+  const series = [
+    {
+      name: "Balance",
+      // Data disesuaikan agar lekukan kurva terlihat lebih alami sesuai gambar
+      data: [110, 330, 240, 480, 440, 780, 410, 210, 560, 400, 240, 640, 600],
+    },
+  ];
+
+  const options = {
+    chart: {
+      type: "area",
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      fontFamily: 'Inter, sans-serif', // Sesuaikan dengan font proyek Anda
+    },
+    stroke: {
+      curve: "smooth",
+      width: 3,
+      colors: ["#1A1FFF"], // Warna biru tegas untuk garis
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.2, // Transparansi bagian atas
+        opacityTo: 0.05,  // Transparansi bagian bawah
+        stops: [0, 90, 100],
+      },
+    },
+    colors: ["#2D60FF80F"],
+    grid: {
+        show: true,
+        borderColor: "#E5EAF4",
+        strokeDashArray: 4,
+        position: "back",
+        xaxis: {
+            lines: { show: true }, // 🔥 vertical grid ON
+        },
+        yaxis: {
+            lines: { show: true },
+        },
+    },
+
+    xaxis: {
+        categories: ["Jul", "Jul", "Aug", "Aug", "Sep", "Sep", "Oct", "Oct", "Nov", "Nov", "Dec", "Dec", "Jan"],
+        tickPlacement: "on",
+        tickAmount: 6,
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+        labels: {
+            style: {
+            colors: "#718EBF",
+            fontSize: "12px",
+            },
+        },
+    },
+
+    yaxis: {
+      min: 0,
+      max: 800,
+      tickAmount: 4,
+      labels: {
+        style: {
+          colors: "#718EBF", // Warna teks angka
+          fontSize: '12px',
+        },
+      },
+    },
+    dataLabels: { enabled: false },
+    tooltip: { enabled: true },
+    markers: { size: 0 },
+  };
+
+  return (
+    <div className="w-full">
+      <h1 className="font-semibold text-[22px] text-[#343C6A] mb-4">Balance History</h1>
+      <div className="bg-white border border-[#DFEAF2] rounded-[25px] px-5 py-4">
+        <Chart options={options} series={series} type="area" height={220} />
+      </div>
+    </div>
+  );
+}

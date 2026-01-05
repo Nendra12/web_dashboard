@@ -1,25 +1,96 @@
-import React from 'react'
-import bar from '../assets/transaction/Group 41.png'
+import React from "react";
+import Chart from "react-apexcharts";
 
-function WeeklyActv() {
+export default function WeeklyActivityBar() {
+  const series = [
+    {
+        name: "Withdraw",
+        data: [480, 350, 330, 480, 150, 390, 400],
+    },
+    {
+      name: "Deposit",
+      data: [240, 120, 260, 380, 240, 240, 340],
+    },
+  ];
+
+  const options = {
+    chart: {
+      type: "bar",
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      fontFamily: "Inter, sans-serif",
+    },
+
+    plotOptions: {
+    bar: {
+        horizontal: false,
+        columnWidth: "40%",         
+        borderRadius: 5,          
+        borderRadiusApplication: "around",
+    },
+    },
+
+    dataLabels: { enabled: false },
+
+    stroke: {
+      show: true,
+      width: 6,                 
+      colors: ["transparent"],   
+    },
+
+    colors: ["#1814F3", "#16DBCC"], 
+
+    legend: {
+      show: true,
+      position: "top",
+      horizontalAlign: "right",
+      markers: { radius: 100 },
+      itemMargin: { horizontal: 20, vertical: 8 },
+      fontSize: "14px",
+      labels: { colors: "#718EBF" },
+    },
+
+    grid: {
+      borderColor: "rgba(226,232,240,0.7)",
+      strokeDashArray: 0,
+      padding: { left: 10, right: 10, top: 8, bottom: 0 },
+    },
+
+    xaxis: {
+      categories: ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+      labels: {
+        style: { colors: "#718EBF", fontSize: "12px" },
+      },
+    },
+
+    yaxis: {
+      min: 0,
+      max: 500,
+      tickAmount: 5, 
+      labels: {
+        style: { colors: "#718EBF", fontSize: "12px" },
+      },
+    },
+
+    tooltip: {
+      shared: true,
+      intersect: false,
+    },
+  };
+
   return (
-    <div className='flex flex-col gap-4.5'>
-        <h1 className='font-semibold text-[22px] text-primary2'>Weekly Activity</h1>
-        <div className='max-w-full border-[#DFEAF2] h-auto border bg-[#FFFFFF] rounded-[25px] py-7 px-8.25 flex flex-col gap-5.5'>
-            <div className='flex justify-end gap-7.5'>
-                <div className='flex items-center gap-2.5'>
-                    <div className='w-3.75 h-3.75 bg-[#16DBCC] rounded-full'></div>
-                    <p className='font-normal text-[15px] text-primary3'>Diposit</p>
-                </div>
-                <div className='flex items-center gap-2.5'>
-                    <div className='w-3.75 h-3.75 bg-[#FF82AC] rounded-full'></div>
-                    <p className='font-normal text-[15px] text-primary3'>Withdraw</p>
-                </div>
-            </div>
-            <img src={bar} alt="bar charts" className='w-auto'/>
+    <>
+        <div className="flex items-center justify-between pb-5">
+            <h2 className="font-semibold text-[22px] text-[#343C6A]">
+                Weekly Activity
+            </h2>
         </div>
-    </div>
-  )
-}
+        <div className="bg-white border border-[#DFEAF2] rounded-[25px] px-5 py-4">
 
-export default WeeklyActv
+        <Chart options={options} series={series} type="bar" height={260} />
+        </div>
+    </>
+  );
+}

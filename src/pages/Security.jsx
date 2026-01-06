@@ -1,0 +1,102 @@
+import React, { useState } from 'react';
+import PasswordInput from '../components/PasswordInput';
+
+function Security() {
+    const [twoFactor, setTwoFactor] = useState(true);
+    const [show, setShow] = useState(false);
+
+  return (
+        <form className="space-y-10 w-full">
+            <div className="space-y-4 mb-6">
+                <h3 className="text-[#333B69] text-[17px] font-semibold">Two-factor Authentication</h3>
+                <div className="flex items-center gap-4">
+                    <button
+                    type="button"
+                    onClick={() => setTwoFactor(!twoFactor)}
+                    className={`relative w-12 h-6 flex items-center rounded-full transition-colors duration-300 focus:outline-none cursor-pointer ${
+                        twoFactor ? 'bg-[#16DBCC]' : 'bg-[#E7EDF1]'
+                    }`}
+                    >
+                    <span
+                        className={`inline-block w-5 h-5 transform bg-white rounded-full transition-transform duration-300 shadow-sm ${
+                        twoFactor ? 'translate-x-6' : 'translate-x-1'
+                        }`}
+                    />
+                    </button>
+                    <span className="text-[#232323] text-sm">Enable or disable two factor authentication</span>
+                </div>
+            </div>
+
+            <div className="space-y-3">
+                <h3 className="text-[#333B69] text-[17px] font-semibold">Change Password</h3>
+                
+                <div className="grid grid-cols-1 gap-6 max-w-md">
+                    <div className="flex flex-col gap-3">
+                    <label className="text-[#232323] text-[16px] font-medium" for='old pass'>Current Password</label>
+                       <div className="relative w-130.5">
+                            <input
+                                type={show ? "text" : "password"}
+                                placeholder="**********"
+                                name='old pass'
+                                id='old pass'
+                                className="w-full px-5 py-3 pr-12 rounded-xl border border-[#DFEAF2] 
+                                        text-primary3 focus:outline-none focus:border-[#1814F3]"
+                            />
+
+                            <button
+                                type="button"
+                                onClick={() => setShow(!show)}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-primary3 cursor-pointer"
+                            >
+                                {show ? (
+                                <i class="bi bi-eye-slash"></i>
+                                ) : (
+                                <i class="bi bi-eye"></i>
+                                )}
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* New Password */}
+                    <div className="flex flex-col gap-3">
+                    <label className="text-[#232323] text-[16px] font-medium" for='new pass'>New Password</label>
+                        <div className="relative w-130.5">
+                            <input
+                                type={show ? "text" : "password"}
+                                placeholder="**********"
+                                name='new pass'
+                                id='new pass'
+                                className="w-full px-5 py-3 pr-12 rounded-xl border border-[#DFEAF2] 
+                                        text-primary3 focus:outline-none focus:border-[#1814F3]"
+                            />
+
+                            <button
+                                type="button"
+                                onClick={() => setShow(!show)}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-primary3 cursor-pointer"
+                            >
+                                {show ? (
+                                <i class="bi bi-eye-slash"></i>
+                                ) : (
+                                <i class="bi bi-eye"></i>
+                                )}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Save Button */}
+            <div className="flex justify-end">
+                <button 
+                    type="submit" 
+                    className="bg-[#1814F3] text-white px-16 py-3 rounded-[15px] text-[18px] font-medium hover:bg-[#1410cf] transition-all cursor-pointer"
+                >
+                    Save
+                </button>
+            </div>
+        </form>
+  );
+}
+
+export default Security;

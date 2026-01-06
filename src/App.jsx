@@ -2,6 +2,8 @@ import './App.css'
 import Navbar from './components/Navbar'
 import SideBar from './components/sidebar'
 import Dashboard from './pages/Dashboard'
+import Loan from './pages/Loan'
+import Settings from './pages/Settings'
 
 function App() {
 
@@ -11,7 +13,9 @@ function App() {
         <SideBar />
       </div>
       <div className='bg-[#F5F7FA] w-[88%] h-screen'>
-        <Dashboard />
+        {/* <Dashboard /> */}
+        {/* <Loan /> */}
+        <Settings />
       </div>
  
     </div>

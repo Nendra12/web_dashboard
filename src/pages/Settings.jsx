@@ -25,11 +25,11 @@ function Settings() {
 
     return (
         <div className="container flex flex-col">
-            <div className='bg-[#ffffff] w-full h-25 border border-gray-100 py-5 px-10'>
+            <div className='bg-[#ffffff] w-full h-25 border-gray-100 py-5 px-10'>
                 <Navbar />
             </div>
             <div className='py-6 px-10 flex flex-col gap-6 bg-[#F5F7FA]'>
-                <div className='w-full border bg-[#FFFFFF] rounded-[25px] py-9.25 px-7.5 '>
+                <div className='w-full bg-[#FFFFFF] rounded-[25px] py-9.25 px-7.5 '>
                     <div className='flex gap-18 border-b border-[#F4F5F7]'>
                         <div className='flex flex-col items-center gap-2 w-25'>
                             {

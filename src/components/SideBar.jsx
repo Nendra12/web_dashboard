@@ -3,7 +3,10 @@ import creditCard from '../assets/icon/credit-card.png'
 import SideBarMenuList from './SideBarMenuList'
 
 
-function SideBar() {
+function SideBar({ handleClick, navActive }) {
+  const handleVal = (e) => {
+    handleClick(e)
+  }
   return (
     <>
         <div className='h-25 flex items-center '>
@@ -13,7 +16,7 @@ function SideBar() {
             </div>
         </div>
         <div className='flex flex-col items-center mt-3.25 w-52.75'>
-            <SideBarMenuList/>
+            <SideBarMenuList  handleVal={handleVal} navActive={navActive}/>
         </div>
     </>
   )

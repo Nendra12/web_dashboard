@@ -3,7 +3,8 @@ import PasswordInput from '../components/PasswordInput';
 
 function Security() {
     const [twoFactor, setTwoFactor] = useState(true);
-    const [show, setShow] = useState(false);
+    const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+    const [showNewPassword, setShowNewPassword] = useState(false);
 
   return (
         <form className="space-y-6 sm:space-y-8 lg:space-y-10 w-full p-2 sm:p-3">
@@ -35,7 +36,7 @@ function Security() {
                     <label className="text-[#232323] text-sm sm:text-[15px] lg:text-[16px] font-medium" for='old pass'>Current Password</label>
                        <div className="relative w-full lg:w-130.5">
                             <input
-                                type={show ? "text" : "password"}
+                                type={showCurrentPassword ? "text" : "password"}
                                 placeholder="**********"
                                 name='old pass'
                                 id='old pass'
@@ -44,10 +45,10 @@ function Security() {
 
                             <button
                                 type="button"
-                                onClick={() => setShow(!show)}
+                                onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                                 className="absolute right-4 top-1/2 -translate-y-1/2 text-primary3 cursor-pointer"
                             >
-                                {show ? (
+                                {showCurrentPassword ? (
                                 <i class="bi bi-eye-slash"></i>
                                 ) : (
                                 <i class="bi bi-eye"></i>
@@ -60,7 +61,7 @@ function Security() {
                     <label className="text-[#232323] text-sm sm:text-[15px] lg:text-[16px] font-medium" for='new pass'>New Password</label>
                         <div className="relative w-full lg:w-130.5">
                             <input
-                                type={show ? "text" : "password"}
+                                type={showNewPassword ? "text" : "password"}
                                 placeholder="**********"
                                 name='new pass'
                                 id='new pass'
@@ -69,10 +70,10 @@ function Security() {
 
                             <button
                                 type="button"
-                                onClick={() => setShow(!show)}
+                                onClick={() => setShowNewPassword(!showNewPassword)}
                                 className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-primary3 cursor-pointer text-sm sm:text-base"
                             >
-                                {show ? (
+                                {showNewPassword ? (
                                 <i class="bi bi-eye-slash"></i>
                                 ) : (
                                 <i class="bi bi-eye"></i>

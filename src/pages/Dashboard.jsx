@@ -14,7 +14,6 @@ function Dashboard() {
   return (
     <div className="w-full flex flex-col lg:mt-0">
         <div className='py-3 px-4 sm:py-4 sm:px-6 md:py-5 lg:py-6 md:px-8 lg:px-10 flex flex-col gap-4 sm:gap-5 md:gap-5 lg:gap-6 bg-white lg:mt-0'>
-            {/* First Row - My Cards & Recent Transactions */}
             <div className='flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-7.5 lg:h-74'>
                 <div className='w-full lg:w-[65%] h-auto lg:h-full flex flex-col'>
                     <MyCards />
@@ -23,7 +22,7 @@ function Dashboard() {
                     <RecentT />
                 </div>
             </div>
-            {/* Second Row - Weekly Activity & Expense Statistics */}
+
             <div className='flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-7.5 h-auto'>
                 <div className='w-full lg:w-[65%] flex flex-col'>
                     <WeeklyActv />
@@ -32,7 +31,7 @@ function Dashboard() {
                     <ExpenseStat />
                 </div>
             </div>
-            {/* Third Row - Quick Transfer & Balance History */}
+
             <div className='flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-7.5 h-auto lg:h-80'>
                 <div className='w-full lg:w-[40%] flex flex-col'>
                    <QuickTf />

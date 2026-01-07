@@ -56,7 +56,6 @@ function Security() {
                         </div>
                     </div>
 
-                    {/* New Password */}
                     <div className="flex flex-col gap-2 sm:gap-2.5 lg:gap-3">
                     <label className="text-[#232323] text-sm sm:text-[15px] lg:text-[16px] font-medium" for='new pass'>New Password</label>
                         <div className="relative w-full lg:w-130.5">
@@ -84,7 +83,6 @@ function Security() {
                 </div>
             </div>
 
-            {/* Save Button */}
             <div className="flex justify-center md:justify-end">
                 <button 
                     type="submit" 

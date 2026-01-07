@@ -19,7 +19,6 @@ function MyCards() {
         </a>
       </div>
 
-      {/* Mobile: horizontal scroll | md+: grid */}
       <div
         className="
           flex gap-3 sm:gap-4 overflow-x-auto pb-2
@@ -29,7 +28,7 @@ function MyCards() {
           scrollbar-hide
         "
       >
-        {/* CARD 1 */}
+
         <div
           className="
             relative rounded-[18px] sm:rounded-[20px] lg:rounded-[25px]
@@ -59,7 +58,6 @@ function MyCards() {
             />
           </div>
 
-          {/* biar tidak “maksa” pakai gap besar, gunakan justify-between */}
           <div className="flex items-center justify-between gap-6">
             <div>
               <p className="text-[10px] sm:text-[11px] font-normal text-[#FFFFFF70] font-family-base">

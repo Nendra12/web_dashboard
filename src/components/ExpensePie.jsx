@@ -34,34 +34,31 @@ export default function ExpensePie({
   labels = [ "Others", "Bill Expense", "Entertainment", "Investment"],
   sizes = [20, 15, 30, 35],
   colors = ["#1814F3", "#FC7900", "#343C6A", "#FA00FF"],
-  radii = [1.15, 1.26, 1.15, 1.05], // relatif terhadap baseR
+  radii = [1.15, 1.26, 1.15, 1.05], 
   startAngle = 90,
-  baseR = 120, // untuk viewBox 300x300
-  gap = 8, // tebal garis putih (px di SVG)
-  pctDistance = 0.58, // sama seperti python (0.62*r)
+  baseR = 120, 
+  gap = 8, 
+  pctDistance = 0.58, 
 }) {
   const cx = 150;
   const cy = 150;
   const total = useMemo(() => sizes.reduce((a, b) => a + b, 0), [sizes]);
 
   const slices = useMemo(() => {
-    // build cumsum
+
     const cumsum = [0];
     for (let i = 0; i < sizes.length; i++) cumsum.push(cumsum[i] + sizes[i]);
 
-    // theta = startAngle - (cumsum/total)*360
     const theta = cumsum.map((v) => startAngle - (v / total) * 360);
 
     return sizes.map((val, i) => {
       const r = baseR * radii[i];
 
-      // python: theta1 = theta[i+1], theta2 = theta[i]
       const theta1 = theta[i + 1];
       const theta2 = theta[i];
 
       const d = describeWedge(cx, cy, r, theta1, theta2);
 
-      // label position mengikuti python
       const ang = (theta2 + theta1) / 2;
       const tx = cx + pctDistance * r * Math.cos(toRad(ang));
       const ty = cy + pctDistance * r * Math.sin(toRad(ang));

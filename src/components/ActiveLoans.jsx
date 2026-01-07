@@ -129,7 +129,6 @@ export default function ActiveLoans() {
               </tr>
             ))}
 
-            {/* Total row */}
             <tr className="border-t border-[#E6EFF5]">
               <td className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 text-xs sm:text-sm md:text-[12px] xl:text-[16px] font-medium text-secondery">
                 Total

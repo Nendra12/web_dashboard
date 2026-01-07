@@ -18,7 +18,6 @@ function RecentT() {
           flex flex-col gap-4 xl:gap-6
         "
       >
-        {/* Item 1 */}
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-3 min-w-0 flex-1">
             <img
@@ -41,7 +40,6 @@ function RecentT() {
           </p>
         </div>
 
-        {/* Item 2 */}
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-3 min-w-0 flex-1">
             <img
@@ -64,7 +62,6 @@ function RecentT() {
           </p>
         </div>
 
-        {/* Item 3 */}
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-3 min-w-0 flex-1">
             <img

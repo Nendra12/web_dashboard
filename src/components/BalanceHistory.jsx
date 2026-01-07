@@ -5,7 +5,6 @@ export default function BalanceHistory() {
   const series = [
     {
       name: "Balance",
-      // Data disesuaikan agar lekukan kurva terlihat lebih alami sesuai gambar
       data: [110, 330, 240, 480, 440, 780, 410, 210, 560, 400, 240, 640, 600],
     },
   ];
@@ -15,19 +14,19 @@ export default function BalanceHistory() {
       type: "area",
       toolbar: { show: false },
       zoom: { enabled: false },
-      fontFamily: 'Inter, sans-serif', // Sesuaikan dengan font proyek Anda
+      fontFamily: 'Inter, sans-serif', 
     },
     stroke: {
       curve: "smooth",
       width: 3,
-      colors: ["#1A1FFF"], // Warna biru tegas untuk garis
+      colors: ["#1A1FFF"], 
     },
     fill: {
       type: "gradient",
       gradient: {
         shadeIntensity: 1,
-        opacityFrom: 0.2, // Transparansi bagian atas
-        opacityTo: 0.05,  // Transparansi bagian bawah
+        opacityFrom: 0.2,
+        opacityTo: 0.05,  
         stops: [0, 90, 100],
       },
     },
@@ -38,7 +37,7 @@ export default function BalanceHistory() {
         strokeDashArray: 4,
         position: "back",
         xaxis: {
-            lines: { show: true }, // 🔥 vertical grid ON
+            lines: { show: true }, 
         },
         yaxis: {
             lines: { show: true },
@@ -65,7 +64,7 @@ export default function BalanceHistory() {
       tickAmount: 4,
       labels: {
         style: {
-          colors: "#718EBF", // Warna teks angka
+          colors: "#718EBF", 
           fontSize: '12px',
         },
       },

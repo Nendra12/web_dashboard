@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './App.css'
 
 import Navbar from './components/Navbar'
-import SideBar from './components/sidebar'
+import SideBar from './components/SideBar'
 import Dashboard from './pages/Dashboard'
 import Loan from './pages/Loan'
 import Settings from './pages/Settings'

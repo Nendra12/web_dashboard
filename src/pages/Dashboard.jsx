@@ -12,32 +12,32 @@ import BalanceHistory from '../components/BalanceHistory'
 
 function Dashboard() {
   return (
-    <div className="container flex flex-col">
-        <div className='bg-[#ffffff] w-full h-25 border border-gray-100 py-5 px-10'>
-            <Navbar />
-        </div>
-        <div className='py-6 px-10 flex flex-col gap-6 bg-[#F5F7FA]'>
-            <div className='flex gap-7.5 h-74'>
-                <div className='w-[65%] h-full flex flex-col'>
+    <div className="w-full flex flex-col lg:mt-0">
+        <div className='py-3 px-4 sm:py-4 sm:px-6 md:py-5 lg:py-6 md:px-8 lg:px-10 flex flex-col gap-4 sm:gap-5 md:gap-5 lg:gap-6 bg-white lg:mt-0'>
+            {/* First Row - My Cards & Recent Transactions */}
+            <div className='flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-7.5 lg:h-74'>
+                <div className='w-full lg:w-[65%] h-auto lg:h-full flex flex-col'>
                     <MyCards />
                 </div>
-                <div className='w-[35%] flex flex-col gap-5 h-full'>
+                <div className='w-full lg:w-[35%] flex flex-col gap-3 sm:gap-4 md:gap-4 lg:gap-5 h-auto lg:h-full'>
                     <RecentT />
                 </div>
             </div>
-            <div className='flex gap-7.5 h-auto'>
-                <div className='w-[65%] flex flex-col'>
+            {/* Second Row - Weekly Activity & Expense Statistics */}
+            <div className='flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-7.5 h-auto'>
+                <div className='w-full lg:w-[65%] flex flex-col'>
                     <WeeklyActv />
                 </div>
-                <div className='w-[35%] flex flex-col gap-5'>
+                <div className='w-full lg:w-[35%] flex flex-col gap-3 sm:gap-4 md:gap-4 lg:gap-5'>
                     <ExpenseStat />
                 </div>
             </div>
-            <div className='flex gap-7.5 h-80'>
-                <div className='w-[40%] flex flex-col'>
+            {/* Third Row - Quick Transfer & Balance History */}
+            <div className='flex flex-col lg:flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-7.5 h-auto lg:h-80'>
+                <div className='w-full lg:w-[40%] flex flex-col'>
                    <QuickTf />
                 </div>
-                <div className='w-[60%] flex flex-col gap-5'>
+                <div className='w-full lg:w-[60%] flex flex-col gap-3 sm:gap-4 md:gap-4 lg:gap-5'>
                    <BalanceHistory />
                 </div>
             </div>

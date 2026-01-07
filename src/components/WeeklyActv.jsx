@@ -2,6 +2,7 @@ import React from "react";
 import Chart from "react-apexcharts";
 
 export default function WeeklyActivityBar() {
+  const isDesktop = window.matchMedia("(min-width: 1222px)").matches;
   const series = [
     {
         name: "Withdraw",
@@ -24,7 +25,7 @@ export default function WeeklyActivityBar() {
     plotOptions: {
     bar: {
         horizontal: false,
-        columnWidth: "40%",         
+        columnWidth: isDesktop ? "40%" : "70%",        
         borderRadius: 5,          
         borderRadiusApplication: "around",
     },
@@ -87,7 +88,7 @@ export default function WeeklyActivityBar() {
                 Weekly Activity
             </h2>
         </div>
-        <div className="bg-white border border-[#DFEAF2] rounded-[25px] px-5 py-4">
+        <div className="bg-white md:border md:border-[#DFEAF2] rounded-[25px] px-5 py-4">
 
         <Chart options={options} series={series} type="bar" height={260} />
         </div>

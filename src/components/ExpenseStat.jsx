@@ -9,7 +9,7 @@ function ExpenseStat() {
         Expense Statistics
       </h1>
 
-      <div className="max-w-full border border-[#DFEAF2] bg-white rounded-[25px] py-7 px-8.25 flex justify-center items-center flex-col gap-5.5">
+      <div className="max-w-full md:border md:border-[#DFEAF2] bg-white rounded-[25px] py-7 px-8.25 flex justify-center items-center flex-col gap-5.5">
 
         <ExpensePie />
 

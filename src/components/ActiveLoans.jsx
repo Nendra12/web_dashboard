@@ -82,38 +82,38 @@ export default function ActiveLoans() {
 
   return (
     <div className="w-full">
-      <div className="w-full overflow-x-auto rounded-2xl bg-white shadow-sm ring-1 ring-black/5 px-[30px]">
-        <table className="min-w-[880px] w-full ">
+      <div className="w-full overflow-x-auto rounded-xl md:rounded-2xl bg-white shadow-sm ring-1 ring-black/5 px-3 sm:px-4 md:px-6 lg:px-[30px]">
+        <table className="min-w-full md:min-w-[880px] w-full">
           <thead>
-            <tr className="text-left text-[16px] font-medium text-primary3">
-              <th className="px-6 pt-5 pb-4">SL No</th>
-              <th className="px-6 pt-5 pb-4">Loan Money</th>
-              <th className="px-6 pt-5 pb-4">Left to repay</th>
-              <th className="px-6 pt-5 pb-4">Duration</th>
-              <th className="px-6 pt-5 pb-4">Interest rate</th>
-              <th className="px-6 pt-5 pb-4">Installment</th>
-              <th className="px-6 pt-5 pb-4">Repay</th>
+            <tr className="text-left text-xs sm:text-sm md:text-[12px] xl:text-[16px] font-medium text-primary3">
+              <th className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 pt-3 sm:pt-4 lg:pt-5 pb-2 sm:pb-3 lg:pb-4">SL No</th>
+              <th className="px-2 sm:px-3 md:px-4 lg:px-6 pt-3 sm:pt-4 lg:pt-5 pb-2 sm:pb-3 lg:pb-4">Loan Money</th>
+              <th className="px-2 sm:px-3 md:px-4 lg:px-6 pt-3 sm:pt-4 lg:pt-5 pb-2 sm:pb-3 lg:pb-4">Left to repay</th>
+              <th className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 pt-3 sm:pt-4 lg:pt-5 pb-2 sm:pb-3 lg:pb-4">Duration</th>
+              <th className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 pt-3 sm:pt-4 lg:pt-5 pb-2 sm:pb-3 lg:pb-4">Interest rate</th>
+              <th className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 pt-3 sm:pt-4 lg:pt-5 pb-2 sm:pb-3 lg:pb-4">Installment</th>
+              <th className="px-2 sm:px-3 md:px-4 lg:px-6 pt-3 sm:pt-4 lg:pt-5 pb-2 sm:pb-3 lg:pb-4">Repay</th>
             </tr>
           </thead>
 
-          <tbody className="text-[16px] text-[#232323]">
+          <tbody className="text-xs sm:text-sm md:text-[12px] xl:text-[16px] text-[#232323]">
             {loans.map((row) => (
               <tr key={row.sl} className="border-t border-[#E6EFF5]">
-                <td className="px-6 py-4">{row.sl}</td>
-                <td className="px-6 py-4 font-medium text-slate-800">
+                <td className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 lg:py-4">{row.sl}</td>
+                <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 font-medium text-slate-800">
                   {fmtMoney(row.loanMoney)}
                 </td>
-                <td className="px-6 py-4">{fmtMoney(row.leftToRepay)}</td>
-                <td className="px-6 py-4">{row.duration}</td>
-                <td className="px-6 py-4">{row.interestRate}</td>
-                <td className="px-6 py-4">
+                <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 lg:py-4">{fmtMoney(row.leftToRepay)}</td>
+                <td className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 lg:py-4">{row.duration}</td>
+                <td className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 lg:py-4">{row.interestRate}</td>
+                <td className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 lg:py-4">
                   {fmtMoney(row.installment)}{" "}/ month
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 lg:py-4">
                   <div className="flex justify-end">
                     <button
                       className={[
-                        "h-9 px-6 rounded-full text-[15px] font-medium transition",
+                        "h-7 sm:h-8 lg:h-9 px-3 sm:px-4 md:px-5 lg:px-6 rounded-full text-xs sm:text-sm md:text-[14px] lg:text-[15px] font-medium transition",
                         "bg-white border",
                         row.active
                           ? "border-[#1814F3] text-[#1814F3]"
@@ -131,21 +131,21 @@ export default function ActiveLoans() {
 
             {/* Total row */}
             <tr className="border-t border-[#E6EFF5]">
-              <td className="px-6 py-5 text-[16px] font-medium text-secondery">
+              <td className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 text-xs sm:text-sm md:text-[12px] xl:text-[16px] font-medium text-secondery">
                 Total
               </td>
-              <td className="px-6 py-5 text-[16px] font-medium text-secondery">
+              <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 text-xs sm:text-sm md:text-[12px] xl:text-[16px] font-medium text-secondery">
                 {fmtMoney(totalLoanMoney)}
               </td>
-              <td className="px-6 py-5 text-[16px] font-medium text-secondery">
+              <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 text-xs sm:text-sm md:text-[12px] xl:text-[16px] font-medium text-secondery">
                 {fmtMoney(totalLeft)}
               </td>
-              <td className="px-6 py-5" />
-              <td className="px-6 py-5" />
-              <td className="px-6 py-5 text-[16px] font-medium text-secondery">
+              <td className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 py-3 sm:py-4 lg:py-5" />
+              <td className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 py-3 sm:py-4 lg:py-5" />
+              <td className="hidden md:table-cell px-2 sm:px-3 md:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 text-xs sm:text-sm md:text-[12px] xl:text-[16px] font-medium text-secondery">
                 {fmtMoney(totalInstallment)}{" "}/ month
               </td>
-              <td className="px-6 py-5" />
+              <td className="px-2 sm:px-3 md:px-4 lg:px-6 py-3 sm:py-4 lg:py-5" />
             </tr>
           </tbody>
         </table>

@@ -27,7 +27,7 @@ function Settings() {
         <div className="w-full flex flex-col">
             <div className='py-3 px-4 sm:py-4 sm:px-6 md:py-5 lg:py-6 md:px-8 lg:px-10 flex flex-col gap-4 sm:gap-5 lg:gap-6 bg-[#F5F7FA]'>
                 <div className='w-full bg-[#FFFFFF] rounded-xl md:rounded-[20px] lg:rounded-[25px] py-4 sm:py-6 md:py-7 lg:py-9.25 px-3 sm:px-5 md:px-6 lg:px-7.5'>
-                    <div className='flex gap-18 border-b border-[#F4F5F7]'>
+                    <div className='flex gap-14 md:gap-18 border-b border-[#F4F5F7]'>
                         <div className='flex flex-col items-center gap-2 w-25'>
                             {
                                 tab == 'edit'? (

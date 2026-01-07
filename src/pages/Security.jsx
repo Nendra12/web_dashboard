@@ -49,9 +49,9 @@ function Security() {
                                 className="absolute right-4 top-1/2 -translate-y-1/2 text-primary3 cursor-pointer"
                             >
                                 {showCurrentPassword ? (
-                                <i class="bi bi-eye-slash"></i>
+                                    <i class="bi bi-eye"></i>
                                 ) : (
-                                <i class="bi bi-eye"></i>
+                                    <i class="bi bi-eye-slash"></i>
                                 )}
                             </button>
                         </div>
@@ -74,9 +74,9 @@ function Security() {
                                 className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 text-primary3 cursor-pointer text-sm sm:text-base"
                             >
                                 {showNewPassword ? (
-                                <i class="bi bi-eye-slash"></i>
+                                    <i class="bi bi-eye"></i>
                                 ) : (
-                                <i class="bi bi-eye"></i>
+                                    <i class="bi bi-eye-slash"></i>
                                 )}
                             </button>
                         </div>

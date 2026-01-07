@@ -84,7 +84,7 @@ export default function WeeklyActivityBar() {
   return (
     <>
         <div className="flex items-center justify-between pb-5">
-            <h2 className="font-semibold text-[22px] text-[#343C6A]">
+            <h2 className="font-semibold text-base sm:text-lg md:text-xl lg:text-[22px] text-primary2">
                 Weekly Activity
             </h2>
         </div>

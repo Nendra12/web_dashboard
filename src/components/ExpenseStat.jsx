@@ -5,7 +5,7 @@ import ExpensePie from "./ExpensePie";
 function ExpenseStat() {
   return (
     <div className="flex flex-col gap-4.5">
-      <h1 className="font-semibold text-[22px] text-primary2">
+      <h1 className="font-semibold text-base sm:text-lg md:text-xl lg:text-[22px] text-primary2">
         Expense Statistics
       </h1>
 

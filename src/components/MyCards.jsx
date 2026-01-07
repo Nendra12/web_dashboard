@@ -102,7 +102,6 @@ function MyCards() {
           </div>
         </div>
 
-        {/* CARD 2 */}
         <div
           className="
             relative rounded-[18px] sm:rounded-[20px] lg:rounded-[25px]

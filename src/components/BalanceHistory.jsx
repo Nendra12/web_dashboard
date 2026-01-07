@@ -76,7 +76,7 @@ export default function BalanceHistory() {
 
   return (
     <div className="w-full">
-      <h1 className="font-semibold text-[22px] text-[#343C6A] mb-4">Balance History</h1>
+      <h1 className="font-semibold text-base sm:text-lg md:text-xl lg:text-[22px] text-primary2">Balance History</h1>
       <div className="bg-white md:border md:border-[#DFEAF2] rounded-[25px] px-5 py-4">
         <Chart options={options} series={series} type="area" height={220} />
       </div>
